@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="lab02.master.cs" Inherits="lab02.lab02" %>
+<%-- Name: Mark Sampirisi
+     Student #: 200271985
+     Date: 6/11/2015
+     Purpose: This is a sample ASP.NET application built for COMP2007.
+     It will include CRUD operations using SQL Server and the Entity
+     Framework, as well as ASP.Identity and Exception Handling. --%>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Contoso University</title>
+    <!-- Bootstrap (latest compiled and minified css) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+    
+<body>
+    <nav class="nav navbar-nav">
+        <a href="default.aspx" class="navbar-brand">Contoso University</a>
+        <ul class="nav navbar-nav">
+            <li><a href="departments.aspx">Departments</a></li>
+            <li><a href="courses.aspx">Courses</a></li>
+            <li><a href="students.aspx">Students</a></li>               
+        </ul>
+    </nav>
+    <form id="form1" runat="server" class="form-horizontal">
+        <div class="text-center">
+             <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        </div>
+       
+    </form>
+    <footer class="alert alert-info">
+        <div class="text-center">
+            @Comp2007 2015 - Mark Sampirisi
+        </div>        
+    </footer>
+
+    <!-- jquery CDN -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- javascript function to ask for user confirmation before delete -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery("a").filter(function () {
+                return this.innerHTML.indexOf("Delete") == 0;
+            }).click(function () {
+                return confirm("Are you sure you want to delete this record?");
+            });
+        });
+
+   </script>
+
+</body>
+</html>
